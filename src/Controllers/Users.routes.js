@@ -45,7 +45,7 @@ UserRoutes.post('/login',async(req,res) => {
             bcrypt.compare(password, user.password, (err, result)=> {
               if(result){
                const token = jwt.sign({ authorID:user._id,author:user.name }, 'masai')
-                res.status(200).send({"msg":"login successfull","token":token})
+                res.status(200).send({"msg":"login successfull","token":token,user : {user : user.name}})
               }else{
                 res.status(200).send({"msg":"wrong credentials"})
               }

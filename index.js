@@ -5,7 +5,8 @@ const PORT = process.env.PORT || 8080;
 const {connect} = require('./db');
 const {UserRoutes} = require('./src/Controllers/Users.routes');
 const {ProductsRoutes} = require('./src/Controllers/Products.routes');
-
+const cors = require('cors');
+app.use(cors());
 // middlewares
 app.use(express.json());
 app.use('/users',UserRoutes);
